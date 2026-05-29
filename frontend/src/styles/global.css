@@ -16,16 +16,16 @@
 
   --text:#18181b;
 
-  --subtext:#71717a;
+  --subtext:#636366;
 
-  --pink:#ff4fa3;
+  --pink:#cc0066;
 
   --pink-light:#ff9ec9;
 
   --purple:#a855f7;
 
   --shadow:
-  0 20px 60px rgba(255,79,163,0.12);
+  0 20px 60px rgba(204,0,102,0.12);
 }
 
 body{
@@ -51,7 +51,7 @@ body::before{
   background:
   radial-gradient(
     circle,
-    rgba(255,79,163,0.22),
+    rgba(204,0,102,0.22),
     transparent 65%
   );
 
@@ -89,5 +89,5 @@ body::after{
 
 ::-webkit-scrollbar-thumb{
   background:var(--pink);
-  border-radius:20px;
+  border-radius:0;
 }

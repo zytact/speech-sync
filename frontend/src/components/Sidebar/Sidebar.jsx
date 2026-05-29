@@ -32,7 +32,7 @@ const Sidebar = ({ openFilePicker }) => {
 
             <h1 className="logo">
 
-              DIAREASE
+              SpeechSync
 
             </h1>
 
@@ -96,24 +96,6 @@ const Sidebar = ({ openFilePicker }) => {
           </li>
 
         </ul>
-
-      </div>
-      <div className="sidebar-signature">
-
-        <div className="signature-line"></div>
-
-        <h3>
-
-          SpeechSync
-
-        </h3>
-
-        <p>
-
-          Transforming Audio into
-          Structured Conversations
-
-        </p>
 
       </div>
 

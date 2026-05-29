@@ -1,0 +1,143 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-05-29T00:00:00.000Z",
+  "title": "Design System: SpeechSync",
+  "extensions": {
+    "colorMeta": {
+      "fuchsia":      { "role": "primary",   "displayName": "Hot Fuchsia",    "canonical": "oklch(44% 0.27 350)", "tonalRamp": ["#3d0015","#700030","#9e1652","#cc2e74","#e83a8a","#cc0066","#ff8ac6","#ffd4ea"] },
+      "violet":       { "role": "secondary", "displayName": "Soft Violet",    "canonical": "oklch(60% 0.27 303)", "tonalRamp": ["#1e0040","#3d0878","#5c15a8","#7a22cc","#9138e8","#a855f7","#c490fa","#eddeff"] },
+      "rose":         { "role": "tertiary",  "displayName": "Speaker Rose",   "canonical": "oklch(68% 0.22 8)",   "tonalRamp": ["#3d0010","#700020","#a03040","#cc4060","#e85070","#fb7185","#ff9fae","#ffdde3"] },
+      "blush-canvas": { "role": "neutral",   "displayName": "Blush Canvas",   "canonical": "oklch(97% 0.018 350)","tonalRamp": ["#2d1820","#4a2430","#6e3545","#935360","#b56c82","#d4939a","#ecbfcc","#fff7fb"] },
+      "ink":          { "role": "neutral",   "displayName": "Ink",            "canonical": "oklch(14% 0.005 286)","tonalRamp": ["#18181b","#2e2e32","#3f3f46","#52525b","#71717a","#a1a1aa","#d4d4d8","#f4f4f5"] },
+      "muted":        { "role": "neutral",   "displayName": "Muted (corrected)","canonical": "oklch(44% 0.006 286)","tonalRamp": ["#18181b","#2e2e32","#3f3f46","#52525b","#636366","#a1a1aa","#d4d4d8","#f4f4f5"] },
+      "pale-pink":    { "role": "neutral",   "displayName": "Pale Pink",      "canonical": "oklch(96% 0.012 350)","tonalRamp": ["#2d1820","#4a2430","#6e3545","#b56c82","#d4939a","#ecbfcc","#fff0f7","#fffbfd"] },
+      "track":        { "role": "neutral",   "displayName": "Track",          "canonical": "oklch(88% 0.04 350)", "tonalRamp": ["#3d0015","#9e1652","#cc2e74","#e87aaa","#f3b8d2","#f3d3e6","#fce8f3","#fff5fa"] }
+    },
+    "typographyMeta": {
+      "display":  { "displayName": "Display",  "purpose": "Page title only. One per screen. Solid Ink color, never gradient." },
+      "headline": { "displayName": "Headline", "purpose": "Section card titles. One per card." },
+      "title":    { "displayName": "Title",    "purpose": "Hero subtitle, secondary section labels." },
+      "body":     { "displayName": "Body",     "purpose": "Descriptions, file names, subtitles. Max 65–75ch." },
+      "label":    { "displayName": "Label",    "purpose": "Nav, table headers, timestamps, chips, metadata." }
+    },
+    "shadows": [
+      { "name": "glass-ambient",    "value": "0 20px 60px rgba(204,0,102,0.08)",  "purpose": "Default under all glass cards. Diffuse pink; reinforces fuchsia identity." },
+      { "name": "interactive-lift", "value": "0 15px 35px rgba(204,0,102,0.28)",  "purpose": "Logo icon, primary action icons. Stronger focal presence." },
+      { "name": "button-raise",     "value": "0 12px 30px rgba(204,0,102,0.18)",  "purpose": "Primary buttons at rest. Communicates affordance." },
+      { "name": "segment-glow",     "value": "0 4px 12px rgba(204,0,102,0.25)",   "purpose": "Timeline segment fills. Data emphasis." }
+    ],
+    "motion": [
+      { "name": "ease-state",     "value": "cubic-bezier(0.4, 0, 0.2, 1)", "purpose": "Default easing for state transitions (hover, active, focus). 150–250ms." },
+      { "name": "ease-lift",      "value": "ease",                         "purpose": "Button hover lift (translateY -2px). 300ms." },
+      { "name": "ease-slide-nav", "value": "ease",                         "purpose": "Nav item hover translateX(3px). 300ms." }
+    ],
+    "breakpoints": [
+      { "name": "sidebar-collapse", "value": "900px", "purpose": "Sidebar shifts to overlay/mobile drawer." }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Main CTA. Upload triggers, play controls, form submits.",
+      "html": "<button class=\"ds-btn-primary\"><svg width=\"16\" height=\"16\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2.5\" stroke-linecap=\"round\" stroke-linejoin=\"round\" style=\"margin-right:8px\"><polyline points=\"16 16 12 12 8 16\"></polyline><line x1=\"12\" y1=\"12\" x2=\"12\" y2=\"21\"></line><path d=\"M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3\"></path></svg>Upload New Audio</button>",
+      "css": ".ds-btn-primary { display: inline-flex; align-items: center; border: none; border-radius: 18px; padding: 16px 26px; font-family: Inter, system-ui, sans-serif; font-size: 15px; font-weight: 700; color: #ffffff; cursor: pointer; background: linear-gradient(135deg, #ff4fa3, #a855f7); box-shadow: 0 12px 30px rgba(204,0,102,0.18); transition: transform 300ms ease, box-shadow 300ms ease; } .ds-btn-primary:hover { transform: translateY(-2px); box-shadow: 0 18px 40px rgba(204,0,102,0.28); } .ds-btn-primary:active { transform: translateY(0); } .ds-btn-primary:focus-visible { outline: 2px solid #ff4fa3; outline-offset: 3px; }"
+    },
+    {
+      "name": "Nav Item",
+      "kind": "nav",
+      "refersTo": "nav-item",
+      "description": "Sidebar navigation link. Default and active states.",
+      "html": "<ul class=\"ds-nav\"><li class=\"ds-nav-item ds-nav-item--active\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><rect x=\"3\" y=\"3\" width=\"7\" height=\"7\"/><rect x=\"14\" y=\"3\" width=\"7\" height=\"7\"/><rect x=\"14\" y=\"14\" width=\"7\" height=\"7\"/><rect x=\"3\" y=\"14\" width=\"7\" height=\"7\"/></svg>Dashboard</li><li class=\"ds-nav-item\"><svg width=\"20\" height=\"20\" viewBox=\"0 0 24 24\" fill=\"none\" stroke=\"currentColor\" stroke-width=\"2\" stroke-linecap=\"round\" stroke-linejoin=\"round\"><polyline points=\"16 16 12 12 8 16\"/><line x1=\"12\" y1=\"12\" x2=\"12\" y2=\"21\"/><path d=\"M20.39 18.39A5 5 0 0 0 18 9h-1.26A8 8 0 1 0 3 16.3\"/></svg>Upload</li></ul>",
+      "css": ".ds-nav { list-style: none; padding: 0; margin: 0; display: flex; flex-direction: column; gap: 14px; } .ds-nav-item { display: flex; align-items: center; gap: 14px; padding: 16px 18px; border-radius: 22px; cursor: pointer; font-family: Inter, system-ui, sans-serif; font-size: 15px; font-weight: 600; color: #3f3f46; transition: background 300ms ease, transform 300ms ease; } .ds-nav-item:hover { background: #fff0f7; transform: translateX(3px); } .ds-nav-item--active { background: linear-gradient(135deg, rgba(204,0,102,0.12), rgba(168,85,247,0.12)); color: #ff2d8d; box-shadow: inset 0 0 0 1px rgba(204,0,102,0.12); }"
+    },
+    {
+      "name": "Speaker Chip",
+      "kind": "chip",
+      "refersTo": "chip-fuchsia",
+      "description": "Speaker attribution tag used in timeline headers and segment rows.",
+      "html": "<div class=\"ds-chip-group\"><span class=\"ds-chip ds-chip--fuchsia\">Speaker 1</span><span class=\"ds-chip ds-chip--violet\">Speaker 2</span><span class=\"ds-chip ds-chip--rose\">Speaker 3</span></div>",
+      "css": ".ds-chip-group { display: flex; gap: 12px; flex-wrap: wrap; } .ds-chip { display: inline-block; padding: 10px 16px; border-radius: 999px; font-family: Inter, system-ui, sans-serif; font-size: 14px; font-weight: 600; color: #ffffff; } .ds-chip--fuchsia { background: #ff4fa3; } .ds-chip--violet { background: #a855f7; } .ds-chip--rose { background: #fb7185; }"
+    },
+    {
+      "name": "Glass Card",
+      "kind": "card",
+      "refersTo": "card-glass",
+      "description": "Primary interaction surface. Upload, player, summary cards. Never used for data tables.",
+      "html": "<div class=\"ds-card-glass\"><h3 class=\"ds-card-headline\">Audio Player</h3><p class=\"ds-card-body\">Meeting_Recording.wav</p></div>",
+      "css": ".ds-card-glass { background: rgba(255,255,255,0.72); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.7); border-radius: 32px; padding: 30px; box-shadow: 0 20px 60px rgba(204,0,102,0.08); } .ds-card-headline { font-family: Inter, system-ui, sans-serif; font-size: 34px; font-weight: 700; letter-spacing: -0.5px; color: #18181b; margin: 0 0 8px; } .ds-card-body { font-family: Inter, system-ui, sans-serif; font-size: 15px; font-weight: 500; color: #636366; margin: 0; }"
+    },
+    {
+      "name": "Flat Card",
+      "kind": "card",
+      "refersTo": "card-flat",
+      "description": "Data-reading surface. Segments table, timeline card. No backdrop-filter.",
+      "html": "<div class=\"ds-card-flat\"><h3 class=\"ds-card-headline\">Speaker Timeline</h3><p class=\"ds-card-body\">3 speakers detected</p></div>",
+      "css": ".ds-card-flat { background: rgba(255,255,255,0.88); border: 1px solid rgba(204,0,102,0.08); border-radius: 32px; padding: 30px; } .ds-card-headline { font-family: Inter, system-ui, sans-serif; font-size: 34px; font-weight: 700; letter-spacing: -0.5px; color: #18181b; margin: 0 0 8px; } .ds-card-body { font-family: Inter, system-ui, sans-serif; font-size: 15px; font-weight: 500; color: #636366; margin: 0; }"
+    },
+    {
+      "name": "Waveform",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Signature component. SVG polyline with fuchsia–violet–rose gradient. The one surface where gradient is functional, not decorative.",
+      "html": "<div class=\"ds-waveform-container\"><svg width=\"100%\" height=\"120\" viewBox=\"0 0 800 120\" fill=\"none\"><path d=\"M0 60 L20 40 L40 80 L60 30 L80 90 L100 35 L120 85 L140 45 L160 70 L180 40 L200 85 L220 50 L240 78 L260 35 L280 80 L300 45 L320 60 L340 30 L360 85 L380 40 L400 70 L420 35 L440 90 L460 45 L480 78 L500 30 L520 85 L540 50 L560 70 L580 35 L600 80 L620 45 L640 90 L660 35 L680 75 L700 40 L720 85 L740 30 L760 78 L780 45 L800 60\" stroke=\"url(#wave-grad)\" stroke-width=\"5\" stroke-linecap=\"round\"/><defs><linearGradient id=\"wave-grad\" x1=\"0\" y1=\"0\" x2=\"800\" y2=\"0\"><stop stop-color=\"#ff4fa3\"/><stop offset=\"0.5\" stop-color=\"#a855f7\"/><stop offset=\"1\" stop-color=\"#fb7185\"/></linearGradient></defs></svg></div>",
+      "css": ".ds-waveform-container { background: linear-gradient(135deg, #fff0f7, #f9edff); border-radius: 32px; height: 240px; display: flex; align-items: center; justify-content: center; overflow: hidden; padding: 0 20px; }"
+    },
+    {
+      "name": "Timeline Track",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "Speaker diarization timeline row with labeled speaker and colored segments.",
+      "html": "<div class=\"ds-timeline-row\"><span class=\"ds-timeline-speaker\">Speaker 1</span><div class=\"ds-timeline-track\"><div class=\"ds-timeline-segment ds-seg--fuchsia\" style=\"left:3%;width:18%\"></div><div class=\"ds-timeline-segment ds-seg--fuchsia\" style=\"left:58%;width:24%\"></div></div></div>",
+      "css": ".ds-timeline-row { display: flex; align-items: center; gap: 20px; } .ds-timeline-speaker { min-width: 110px; font-family: Inter, system-ui, sans-serif; font-weight: 700; font-size: 15px; color: #2b1120; } .ds-timeline-track { position: relative; flex: 1; height: 18px; border-radius: 30px; background: #f3d3e6; overflow: hidden; } .ds-timeline-segment { position: absolute; top: 0; height: 100%; border-radius: 30px; box-shadow: 0 4px 12px rgba(204,0,102,0.25); } .ds-seg--fuchsia { background: linear-gradient(135deg, #ff4fa3, #ff7bc0); } .ds-seg--violet { background: linear-gradient(135deg, #a855f7, #c084fc); } .ds-seg--rose { background: linear-gradient(135deg, #fb7185, #ff9b8a); }"
+    },
+    {
+      "name": "Segments Table Row",
+      "kind": "custom",
+      "refersTo": null,
+      "description": "A row in the transcript segments table.",
+      "html": "<table class=\"ds-table\"><thead><tr><th>Speaker</th><th>Start</th><th>End</th><th>Duration</th><th>Play</th></tr></thead><tbody><tr class=\"ds-table-row\"><td><span class=\"ds-speaker-cell\"><span class=\"ds-speaker-dot\" style=\"background:#ff4fa3\"></span>Speaker 1</span></td><td>0:00</td><td>0:12</td><td>12s</td><td><button class=\"ds-mini-play\"><svg width=\"14\" height=\"14\" viewBox=\"0 0 24 24\" fill=\"currentColor\"><polygon points=\"5 3 19 12 5 21 5 3\"/></svg></button></td></tr></tbody></table>",
+      "css": ".ds-table { width: 100%; border-collapse: collapse; font-family: Inter, system-ui, sans-serif; } .ds-table thead { background: #fff0f7; } .ds-table th { padding: 18px; text-align: left; color: #636366; font-size: 14px; font-weight: 700; } .ds-table-row td { padding: 20px 18px; border-top: 1px solid rgba(204,0,102,0.08); font-size: 15px; font-weight: 500; color: #18181b; transition: background 200ms ease; } .ds-table-row:hover td { background: rgba(255,240,248,0.5); } .ds-speaker-cell { display: flex; align-items: center; gap: 12px; font-weight: 700; } .ds-speaker-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; } .ds-mini-play { width: 38px; height: 38px; border: none; border-radius: 12px; background: linear-gradient(135deg, #ff4fa3, #a855f7); color: white; cursor: pointer; display: flex; align-items: center; justify-content: center; transition: transform 200ms ease; } .ds-mini-play:hover { transform: scale(1.1); }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Signal Studio",
+    "overview": "SpeechSync is a precision instrument. Pink and violet are signal colors here: they mark where speech begins and ends, who is speaking, and which actions are primary. The warm blush canvas background is a committed design choice (oklch 97% chroma 0.018 hue 350), not an AI-default near-white. Researchers working with recorded interviews deserve an interface that doesn't feel clinical, but the warmth is earned through tone and typography, not decorative gradients.\n\nThe glass layer exists in two tiers. Primary interaction surfaces (upload card, audio player, sidebar, summary column) float on a glass plane with soft pink-tinted shadows. Data surfaces (segments table, timeline card) sit flat beneath, distinguished by solid fill and a faint pink border. This separation is functional: glass communicates \"this is where you act,\" flat communicates \"this is what the data says.\"\n\nThis system explicitly rejects pink/purple glassmorphism used as ambient decoration across all surfaces, the hero-metric template (large gradient numbers with label below), gradient text on headings or data values, and the generic warm-tinted AI tool aesthetic where every surface bleeds into every other.",
+    "keyCharacteristics": [
+      "Hot Fuchsia and Soft Violet used only for interactive elements and speaker signal data",
+      "Two-tier elevation: glass on primary interaction, flat on data reading",
+      "Inter at 400–800 weight; no secondary typeface",
+      "150–250ms state transitions; no orchestrated load choreography",
+      "--muted set to #636366 (not #71717a — the lighter value fails WCAG AA against the blush bg)"
+    ],
+    "rules": [
+      { "name": "The Signal Color Rule",     "body": "Hot Fuchsia and Soft Violet appear on interactive elements and speaker data markers. They do not appear on decorative dividers, section backgrounds, or typographic emphasis. Rarity is the point.", "section": "colors" },
+      { "name": "The Committed Canvas Rule", "body": "The blush bg is #fff7fb / oklch(97% 0.018 350). If it drifts toward white (less chroma) it becomes the AI-default warm near-white. If it drifts toward warm-neutral (hue 40–80) it becomes sand/cream. The hue must stay close to 350.", "section": "colors" },
+      { "name": "The Three Speakers Rule",   "body": "Speaker colors are fuchsia, violet, and rose. A fourth speaker gets fuchsia at reduced opacity (rgba(204,0,102,0.6)), not a new brand color.", "section": "colors" },
+      { "name": "The Solid Display Rule",    "body": "Display text is Ink (#18181b), always. background-clip: text gradient on .hero-title and .summary-value is prohibited and must be removed. The weight and scale of Inter 800 at -3px letter-spacing is already a strong enough statement.", "section": "typography" },
+      { "name": "The Weight Signal Rule",    "body": "Weight 800 is a singular anchor. One per card, one per screen section. Nav items, buttons, and table headers are weight 600–700. Body prose is 400–500.", "section": "typography" },
+      { "name": "The Glass Above Rule",      "body": "Glass (backdrop-filter: blur(20px)) is reserved for primary interaction surfaces: upload card, audio player card, sidebar panel, and summary/analytics column. Data-reading surfaces are flat. Blurring behind a dense data table is visual noise.", "section": "elevation" },
+      { "name": "The Flat-By-Default Rule for Data", "body": "Segments table and timeline card use background: rgba(255,255,255,0.88), border: 1px solid rgba(204,0,102,0.08), no backdrop-filter. Depth comes from tonal contrast, not blur.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do use Hot Fuchsia (#ff4fa3) only for interactive elements and speaker signal markers.",
+      "Do keep the blush canvas at #fff7fb / oklch(97% 0.018 350) — committed chroma, not tinted white.",
+      "Do apply glass (backdrop-filter: blur(20px)) only to primary interaction surfaces.",
+      "Do set --muted to #636366 or darker. Current #71717a fails WCAG AA on the blush bg.",
+      "Do use Inter exclusively at weights 400–800.",
+      "Do allow the waveform SVG its linear gradient — it visualizes signal data and earns the expressiveness.",
+      "Do use transform: translateY(-2px) with transition: 300ms ease as the hover treatment for primary buttons."
+    ],
+    "donts": [
+      "Don't use gradient text (background-clip: text; -webkit-text-fill-color: transparent) on any element. Remove from .hero-title and .summary-value.",
+      "Don't apply glass (backdrop-filter: blur) to the segments table or timeline track card.",
+      "Don't flood non-interactive surfaces with pink gradients beyond the existing ambient body glows.",
+      "Don't let the bg drift toward warm-neutral (sand, cream, parchment). The blush tint is fuchsia-hued.",
+      "Don't build hero-metric displays (large gradient number + small label). Redesign .summary-value toward solid Ink typography.",
+      "Don't use more than three speaker signal colors.",
+      "Don't use display weight (800, negative letter-spacing) on table headers, nav items, or button labels.",
+      "Don't use border-left or border-right greater than 1px as a colored stripe on cards or list items."
+    ]
+  }
+}

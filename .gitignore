@@ -24,3 +24,4 @@ dist/
 backend/*.pt
 backend/*.pth
 backend/*.ckpt
+frontend/.impeccable/live/sessions

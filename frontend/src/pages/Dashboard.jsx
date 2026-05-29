@@ -11,7 +11,47 @@ import SpeakerTimeline from "../components/Timeline/SpeakerTimeline";
 import SegmentsTable from "../components/Tables/SegmentsTable";
 import SummaryCards from "../components/Analytics/SummaryCards";
 
-import waveBg from "../assets/wave-bg.jpg";
+const GHOST_ROWS = [
+  { color: "#cc0066", segs: [{l:3,w:18},{l:34,w:12},{l:60,w:20}] },
+  { color: "#a855f7", segs: [{l:12,w:24},{l:52,w:10},{l:74,w:14}] },
+  { color: "#fb7185", segs: [{l:6,w:10},{l:40,w:16},{l:68,w:18}] },
+];
+
+const EmptyWorkspace = ({ onUpload }) => (
+  <div className="empty-workspace">
+    <div className="empty-prompt">
+      <p className="empty-heading">Upload a recording to begin.</p>
+      <p className="empty-body">
+        SpeechSync identifies who speaks when, segments the conversation,
+        and returns a structured transcript.
+      </p>
+    </div>
+    <div className="empty-ghost-section">
+      <span className="empty-ghost-label">Output preview</span>
+      <div className="empty-ghost-timeline">
+        {GHOST_ROWS.map((row, i) => (
+          <div className="ghost-row" key={i}>
+            <div className="ghost-label" />
+            <div className="ghost-track">
+              {row.segs.map((s, j) => (
+                <div
+                  key={j}
+                  className="ghost-segment"
+                  style={{
+                    left: `${s.l}%`,
+                    width: `${s.w}%`,
+                    background: row.color,
+                    animationDelay: `${(i * 0.3 + j * 0.15).toFixed(2)}s`,
+                  }}
+                />
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+);
 
 const Dashboard = () => {
 
@@ -40,36 +80,9 @@ const Dashboard = () => {
         openFilePicker={openFilePicker}
       />
       <main className="dashboard-main">
-        <div className="hero-section">
+        <div className="workspace">
 
-          <div>
-
-            <h1 className="hero-title">
-
-              SpeechSync
-
-            </h1>
-
-            <p className="hero-subtitle">
-
-              Transforming Audio into Structured Conversations
-
-            </p>
-
-          </div>
-
-          <button
-            className="hero-upload-btn"
-            onClick={openFilePicker}
-          >
-
-            Upload New Audio
-
-          </button>
-
-        </div>
-        <div className="dashboard-grid">
-          <div className="left-column">
+          <div className="workspace-left">
 
             <UploadCard
               setDiarizationData={setDiarizationData}
@@ -84,30 +97,21 @@ const Dashboard = () => {
               audioRef={audioRef}
             />
 
-            <SpeakerTimeline
-              diarizationData={diarizationData}
-            />
-
-            <SegmentsTable
-              diarizationData={diarizationData}
-              audioRef={audioRef}
-            />
-
-          </div>
-          <div className="right-column">
-
             <SummaryCards
               diarizationData={diarizationData}
             />
 
-            <div className="floating-wave">
+          </div>
 
-              <img
-                src={waveBg}
-                alt="wave"
-              />
+          <div className="workspace-right">
 
-            </div>
+            {diarizationData.length === 0
+              ? <EmptyWorkspace onUpload={openFilePicker} />
+              : <>
+                  <SpeakerTimeline diarizationData={diarizationData} />
+                  <SegmentsTable diarizationData={diarizationData} audioRef={audioRef} />
+                </>
+            }
 
           </div>
 
