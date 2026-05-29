@@ -1,0 +1,10 @@
+{
+  "segmentation": {
+    "min_duration_off": 0.0
+  },
+  "clustering": {
+    "method": "centroid",
+    "min_cluster_size": 12,
+    "threshold": 0.7143821653887091
+  }
+}
