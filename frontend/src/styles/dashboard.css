@@ -507,6 +507,50 @@ body{
   color:#a1a1aa;
 }
 
+.signal-diagram{
+  width:100%;
+  max-width:760px;
+  height:auto;
+  display:block;
+  color:#cc0066;
+}
+
+.signal-diagram-axis{
+  stroke:rgba(204,0,102,0.14);
+  stroke-width:2;
+}
+
+.signal-diagram-wave{
+  fill:none;
+  stroke:#cc0066;
+  stroke-width:3;
+  stroke-linecap:square;
+  opacity:0.62;
+}
+
+.signal-diagram-segments rect{
+  fill:#cc0066;
+}
+
+.signal-diagram-segments rect:nth-child(2){
+  fill:#a855f7;
+}
+
+.signal-diagram-segments rect:nth-child(3){
+  fill:#fb7185;
+}
+
+.signal-diagram-segments rect:nth-child(4){
+  fill:rgba(204,0,102,0.72);
+}
+
+.signal-diagram-labels text{
+  fill:#636366;
+  font-size:11px;
+  font-weight:800;
+  letter-spacing:0.08em;
+}
+
 .empty-ghost-timeline{
   display:flex;
   flex-direction:column;

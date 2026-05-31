@@ -30,46 +30,19 @@
 
   position:absolute;
 
-  left:-120px;
-  bottom:-120px;
+  left:0;
+  bottom:0;
 
-  width:420px;
-  height:420px;
-
-  background:
-  radial-gradient(
-    circle,
-    rgba(204,0,102,0.22),
-    transparent 70%
-  );
-
-  z-index:0;
-}
-
-.sidebar::after{
-
-  content:"";
-
-  position:absolute;
-
-  left:-80px;
-  bottom:20px;
-
-  width:500px;
-  height:260px;
+  width:100%;
+  height:190px;
 
   background:
-  repeating-radial-gradient(
-    circle at 0 100%,
-    rgba(204,0,102,0.11) 0px,
-    rgba(204,0,102,0.11) 2px,
-    transparent 2px,
-    transparent 12px
-  );
+    linear-gradient(180deg, transparent, rgba(204,0,102,0.07)),
+    linear-gradient(90deg, rgba(204,0,102,0.12) 1px, transparent 1px),
+    linear-gradient(0deg, rgba(204,0,102,0.08) 1px, transparent 1px);
+  background-size:auto, 32px 32px, 32px 32px;
 
-  transform:rotate(-8deg);
-
-  opacity:0.9;
+  mask-image:linear-gradient(180deg, transparent, black 38%);
 
   z-index:0;
 }
@@ -300,48 +273,20 @@
   outline-offset:3px;
 }
 
-.waveform-logo{
+.signal-mark{
 
-  display:flex;
+  width:100%;
+  height:100%;
 
-  align-items:center;
+  display:block;
 
-  justify-content:center;
-
-  gap:4px;
+  color:#cc0066;
 }
 
-.waveform-logo span{
+.logo-icon .signal-mark{
 
-  width:4px;
-
-  border-radius:0;
-
-  background:white;
+  color:#cc0066;
 }
-
-.waveform-logo span:nth-child(1){
-  height:14px;
-}
-
-.waveform-logo span:nth-child(2){
-  height:24px;
-}
-
-.waveform-logo span:nth-child(3){
-  height:34px;
-}
-
-.waveform-logo span:nth-child(4){
-  height:24px;
-}
-
-.waveform-logo span:nth-child(5){
-  height:14px;
-}
-
-
-
 
 /* ── Fuchsia glow ─────────────────────────────────────────── */
 

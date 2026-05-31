@@ -7,6 +7,8 @@ import {
   FiCpu
 } from "react-icons/fi";
 
+import SignalMark from "../Brand/SignalMark";
+
 import "../../styles/sidebar.css";
 
 const Sidebar = ({ openFilePicker }) => {
@@ -18,13 +20,9 @@ const Sidebar = ({ openFilePicker }) => {
       <div>
         <div className="logo-container">
 
-          <div className="logo-icon waveform-logo">
+          <div className="logo-icon">
 
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
-            <span></span>
+            <SignalMark />
 
           </div>
 
